@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int checkPrimeNumb = 0;
-        System.out.println("Please enter a maximum number of primenumber you would like to print out: ");
+        System.out.print("Please enter a maximum number of primenumber you would like to print out: ");
 
         try {
             checkPrimeNumb = scan.nextInt();
