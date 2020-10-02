@@ -58,8 +58,7 @@ public class Main {
                     primeNumbers = primeNumbers + i + " ";
                 }
             }
-            System.out
-                    .println("Prime numbers with the maximum of " + checkPrimeNumb + " is the below:\n" + primeNumbers);
+
         }
         System.exit(0);
     }
