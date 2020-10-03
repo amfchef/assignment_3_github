@@ -3,7 +3,9 @@ package Johansson;
 import java.util.Scanner;
 
 public class Main {
-    public static void primeNum(int checkPrimeNumb){    //this method will use the user unput and print out all prime numbers below the input
+    static Scanner scan = new Scanner(System.in);
+
+    public static void primeNum(int checkPrimeNumb) {    //this method will use the user unput and print out all prime numbers below the input
         String primeNumbers = "";
         if (checkPrimeNumb <= 1) {  //there is no primeNums below 2
             System.out.println("The maximum value you entered is too low");
@@ -20,21 +22,47 @@ public class Main {
                     primeNumbers = primeNumbers + i + " ";
                 }
             }
-                    System.out.println("Prime numbers with the maximum of " + checkPrimeNumb + " is the below:\n" + primeNumbers);
+            System.out.println("Prime numbers with the maximum of " + checkPrimeNumb + " is the below:\n" + primeNumbers);
         }
     }
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int checkPrimeNumb = 0;
+
+    public static void askForNum() {
         System.out.print("Please enter a maximum number of primenumber you would like to print out: ");
+        int checkPrimeNumb = 0;
         try {
             checkPrimeNumb = scan.nextInt();
         } catch (Exception e) {
             System.out.println("Error\nInvalid format\nYou have to enter a number");
-            System.exit(0);
+            //System.exit(4);
         }
-        scan.close();
-           primeNum(checkPrimeNumb);
-        System.exit(0);
+        primeNum(checkPrimeNumb);
+    }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        askForNum();
+        // int checkPrimeNumb = 0;
+        //primeNum(checkPrimeNumbers);
+
+        //primeNum(checkPrimeNumbers);
+
+        String playAgain = "";
+        boolean continunePlaying = true;
+        while (continunePlaying) {
+            System.out.print("Would you like to enter another number: [Y]");
+            try {
+                playAgain = scan.nextLine();
+            } catch (Exception e) {
+                System.out.println("Error\nInvalid format\nYou have to enter a number");
+                System.exit(2);
+            }
+            playAgain.toLowerCase();
+            if (playAgain.equals("y")) {
+                askForNum();
+            } else {
+                continunePlaying = false;
+                System.exit(1);
+            }
+        }
     }
 }
