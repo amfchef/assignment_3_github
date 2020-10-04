@@ -29,27 +29,29 @@ public class Main {
     public static void askForNum() {
         System.out.print("Please enter a maximum number of primenumber you would like to print out: ");
         int checkPrimeNumb = 0;
+
         try {
-            checkPrimeNumb = scan.nextInt();
+           checkPrimeNumb = scan.nextInt();
+
         } catch (Exception e) {
             System.out.println("Error\nInvalid format\nYou have to enter a number");
-            //System.exit(4);
+            checkPrimeNumb = 0;
+            scan.nextLine();
+            askForNum();
         }
+    if(checkPrimeNumb >= 0) {
         primeNum(checkPrimeNumb);
+    }
     }
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         askForNum();
-        // int checkPrimeNumb = 0;
-        //primeNum(checkPrimeNumbers);
-
-        //primeNum(checkPrimeNumbers);
 
         String playAgain = "";
         boolean continunePlaying = true;
         while (continunePlaying) {
-            System.out.print("Would you like to enter another number: [Y]");
+            System.out.print("Would you like to enter another number: [Y] Otherwise press any other character to [EXIT]");
             try {
                 playAgain = scan.nextLine();
             } catch (Exception e) {
